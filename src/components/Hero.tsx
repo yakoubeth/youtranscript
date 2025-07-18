@@ -79,7 +79,7 @@ export default function Hero() {
             <Link href="/signup">
               <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 shadow-xl hover:shadow-2xl">
                 <span className="relative z-10 flex items-center">
-                  Start Free - Sign Up
+                  Start 14-Day Free Trial
                   <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
@@ -96,7 +96,7 @@ export default function Hero() {
           {/* Free tier benefits */}
           <div className="mt-6">
             <p className="text-sm text-gray-500 dark:text-gray-400">
-              🎉 Free Forever Plan: 5 videos/month • Basic transcription • All export formats
+              🎉 14-Day Free Trial: 5 transcripts • Basic features • No credit card required
             </p>
           </div>
 

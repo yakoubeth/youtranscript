@@ -8,22 +8,24 @@ export default function Pricing() {
 
   const plans = [
     {
-      name: 'Free',
-      description: 'Perfect for getting started',
+      name: 'Free Trial',
+      description: '14-day trial to get started',
       price: { monthly: 0, yearly: 0 },
       features: [
-        'Up to 5 transcripts per month',
+        'Up to 5 transcripts during trial',
         'Basic transcript extraction',
-        'Download in TXT format',
+        'Copy transcript to clipboard',
         'Standard processing speed',
         'Community support',
         'Basic timestamps'
       ],
       limitations: [
+        'Trial expires after 14 days',
         'Videos up to 10 minutes',
+        'No download formats',
         'No AI features'
       ],
-      cta: 'Get Started Free',
+      cta: 'Start Free Trial',
       popular: false,
       color: 'gray'
     },
@@ -31,6 +33,29 @@ export default function Pricing() {
       name: 'Pro',
       description: 'For content creators and professionals',
       price: { monthly: 10, yearly: 96 },
+      features: [
+        'Up to 100 transcripts per month',
+        'Advanced transcript extraction',
+        'All export formats (TXT, MD, JSON, SRT)',
+        'Lightning-fast processing',
+        'Speaker identification',
+        'Priority support',
+        'Advanced timestamps with confidence scores',
+        'Bulk processing',
+        'Videos up to 2 hours'
+      ],
+      limitations: [
+        'No AI chat features',
+        'No AI summarization'
+      ],
+      cta: 'Start Pro Plan',
+      popular: true,
+      color: 'blue'
+    },
+    {
+      name: 'Ultra',
+      description: 'Ultimate AI-powered experience',
+      price: { monthly: 25, yearly: 240 },
       features: [
         'Unlimited transcripts',
         'AI-powered transcript summarization',
@@ -42,12 +67,14 @@ export default function Pricing() {
         'Priority support',
         'Advanced timestamps with confidence scores',
         'Bulk processing',
-        'API access'
+        'API access',
+        'Unlimited video length',
+        'Advanced AI content analysis'
       ],
       limitations: [],
-      cta: 'Start Pro Trial',
-      popular: true,
-      color: 'blue'
+      cta: 'Go Ultra',
+      popular: false,
+      color: 'purple'
     }
   ];
 
@@ -124,7 +151,7 @@ export default function Pricing() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
           {plans.map((plan, index) => (
             <div
               key={index}
@@ -247,141 +274,6 @@ export default function Pricing() {
                 </div>
               ))}
             </div>
-
-            {/* Call to Action */}
-            <div className="text-center">
-              <div className="inline-flex flex-col sm:flex-row gap-4">
-                <Link href="/signup">
-                  <button className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 shadow-xl hover:shadow-2xl">
-                    <span className="flex items-center">
-                      Start Your Free Trial
-                      <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </span>
-                  </button>
-                </Link>
-                <button className="px-8 py-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white font-semibold rounded-xl hover:bg-white dark:hover:bg-gray-800 transition-all duration-200 border border-gray-200 dark:border-gray-700">
-                  Watch Demo
-                </button>
-              </div>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
-                ✨ No credit card required • 14-day free trial • Cancel anytime
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* FAQ Section */}
-        <div className="mt-24">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-full mb-4">
-              <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">
-                ❓ Got Questions?
-              </span>
-            </div>
-            <h3 className="text-4xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
-                Frequently Asked Questions
-              </span>
-            </h3>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Everything you need to know about YouTranscript
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <div className="group">
-              <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300 hover:shadow-lg">
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mr-4">
-                    <svg className="w-4 h-4 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-3">
-                      Can I cancel anytime?
-                    </h4>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                      Absolutely! You can cancel your subscription at any time with just one click. No questions asked, no cancellation fees.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="group">
-              <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-600 transition-all duration-300 hover:shadow-lg">
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-8 h-8 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mr-4">
-                    <svg className="w-4 h-4 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-3">
-                      Is there a free trial?
-                    </h4>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                      Yes! All paid plans come with a 14-day free trial. No credit card required to start your trial.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="group">
-              <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 hover:border-green-300 dark:hover:border-green-600 transition-all duration-300 hover:shadow-lg">
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mr-4">
-                    <svg className="w-4 h-4 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-3">
-                      What languages do you support?
-                    </h4>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                      We support 100+ languages with high accuracy transcription, including English, Spanish, French, German, Chinese, and many more.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="group">
-              <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-600 transition-all duration-300 hover:shadow-lg">
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-8 h-8 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg flex items-center justify-center mr-4">
-                    <svg className="w-4 h-4 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-3">
-                      How accurate are the transcripts?
-                    </h4>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                      Our AI achieves 95-99% accuracy depending on audio quality and language, with automatic punctuation and formatting.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Additional Support CTA */}
-          <div className="text-center mt-12">
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
-              Still have questions? We&apos;re here to help!
-            </p>
-            <Link href="/contact">
-              <button className="px-6 py-3 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-medium rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200">
-                Contact Support
-              </button>
-            </Link>
           </div>
         </div>
       </div>
