@@ -7,7 +7,7 @@ export default function Features() {
         </svg>
       ),
       title: "Lightning Fast Processing",
-      description: "Get your transcripts in seconds, not minutes. Our AI-powered engine processes videos at incredible speed.",
+      description: "Get your transcripts in seconds, not minutes. Our optimized engine processes videos at incredible speed.",
       color: "from-blue-500 to-cyan-500"
     },
     {
@@ -26,8 +26,8 @@ export default function Features() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      title: "99% Accuracy Rate",
-      description: "Advanced AI ensures high-quality transcriptions with proper punctuation and formatting.",
+      title: "High Accuracy",
+      description: "Advanced speech recognition ensures accurate transcriptions with proper punctuation and formatting.",
       color: "from-green-500 to-emerald-500"
     },
     {
@@ -36,18 +36,18 @@ export default function Features() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      title: "Timestamp Precision",
-      description: "Every transcript includes precise timestamps, making it easy to navigate and reference.",
+      title: "Precise Timestamps",
+      description: "Every transcript includes accurate timestamps, making it easy to navigate and reference specific moments.",
       color: "from-orange-500 to-red-500"
     },
     {
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
         </svg>
       ),
-      title: "Speaker Identification",
-      description: "Automatically identify and separate different speakers in conversations and interviews.",
+      title: "Easy Copy & Share",
+      description: "One-click copying to clipboard and instant sharing capabilities for seamless collaboration.",
       color: "from-indigo-500 to-purple-500"
     },
     {
@@ -57,7 +57,7 @@ export default function Features() {
         </svg>
       ),
       title: "Secure & Private",
-      description: "Your data is encrypted and never stored. We respect your privacy and maintain the highest security standards.",
+      description: "Your data is encrypted and never stored permanently. We prioritize your privacy and security.",
       color: "from-gray-500 to-gray-600"
     }
   ];
@@ -69,7 +69,7 @@ export default function Features() {
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
-              Powerful Features
+              Core Features
             </span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -105,9 +105,17 @@ export default function Features() {
 
         {/* Call to Action */}
         <div className="text-center mt-16">
-          <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 shadow-xl">
-            Try All Features Now
-          </button>
+          <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl p-8 border border-blue-200 dark:border-blue-800">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              Ready to Get Started?
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
+              Try YouTranscript today and experience the fastest, most accurate YouTube transcription service.
+            </p>
+            <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 shadow-xl">
+              Start Transcribing Now
+            </button>
+          </div>
         </div>
       </div>
     </section>
