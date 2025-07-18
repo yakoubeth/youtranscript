@@ -114,11 +114,11 @@ export default function Hero() {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
             <div className="text-center">
-              <div className="text-3xl font-bold text-gray-900 dark:text-white">15M+</div>
+              <div className="text-3xl font-bold text-gray-900 dark:text-white">25K+</div>
               <div className="text-sm text-gray-600 dark:text-gray-400">Videos Processed</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-gray-900 dark:text-white">50K+</div>
+              <div className="text-3xl font-bold text-gray-900 dark:text-white">2.5K+</div>
               <div className="text-sm text-gray-600 dark:text-gray-400">Active Users</div>
             </div>
             <div className="text-center">
@@ -126,7 +126,7 @@ export default function Hero() {
               <div className="text-sm text-gray-600 dark:text-gray-400">Languages</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-gray-900 dark:text-white">4.9★</div>
+              <div className="text-3xl font-bold text-gray-900 dark:text-white">4.8★</div>
               <div className="text-sm text-gray-600 dark:text-gray-400">User Rating</div>
             </div>
           </div>
