@@ -227,17 +227,29 @@ export default function Pricing() {
 
               {/* CTA Button */}
               <Link href="/signup">
-                <button className={`w-full py-4 px-6 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-2xl flex items-center justify-center gap-2 group ${
+                <button className={`w-full py-4 px-6 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-2xl flex items-center justify-center gap-2 group relative overflow-hidden ${
                   plan.popular
                     ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700'
                     : plan.name === 'Free'
                     ? 'bg-gradient-to-r from-red-600 to-red-700 text-white hover:from-red-700 hover:to-red-800'
                     : plan.name === 'Ultra'
-                    ? 'bg-gradient-to-r from-yellow-500 via-yellow-600 to-orange-500 text-white hover:from-yellow-600 hover:via-yellow-700 hover:to-orange-600 shadow-yellow-200/50 hover:shadow-yellow-300/60'
+                    ? 'bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 text-amber-900 hover:from-amber-300 hover:via-yellow-400 hover:to-amber-500 shadow-amber-400/50 hover:shadow-amber-500/70 border border-amber-300/50'
                     : 'bg-gradient-to-r from-gray-800 to-gray-900 dark:from-gray-700 dark:to-gray-800 text-white hover:from-gray-900 hover:to-black dark:hover:from-gray-600 dark:hover:to-gray-700'
                 }`}>
-                  <span>{plan.cta}</span>
-                  <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {plan.name === 'Ultra' && (
+                    <>
+                      {/* Metallic shine effect */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                      {/* Inner glow */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-yellow-200/20 via-amber-100/30 to-orange-200/20 rounded-xl"></div>
+                      {/* Top highlight */}
+                      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-200 to-transparent"></div>
+                    </>
+                  )}
+                  <span className={`relative z-10 ${plan.name === 'Ultra' ? 'font-bold text-amber-900 drop-shadow-sm' : ''}`}>
+                    {plan.cta}
+                  </span>
+                  <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </button>
