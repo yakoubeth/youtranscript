@@ -66,9 +66,17 @@ export default function Header() {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
-            <button className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 shadow-lg">
-              Get Started
-            </button>
+            <Link 
+              href="/login"
+              className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium"
+            >
+              Sign In
+            </Link>
+            <Link href="/signup">
+              <button className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 shadow-lg">
+                Get Started
+              </button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -110,10 +118,18 @@ export default function Header() {
               >
                 About
               </Link>
+              <Link 
+                href="/login" 
+                className="block px-3 py-2 text-base font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md transition-colors duration-200"
+              >
+                Sign In
+              </Link>
               <div className="pt-3">
-                <button className="w-full px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 shadow-lg">
-                  Get Started
-                </button>
+                <Link href="/signup">
+                  <button className="w-full px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 shadow-lg">
+                    Get Started
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

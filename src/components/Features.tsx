@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Features() {
   const features = [
     {
@@ -112,9 +114,11 @@ export default function Features() {
             <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
               Try YouTranscript today and experience the fastest, most accurate YouTube transcription service.
             </p>
-            <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 shadow-xl">
-              Start Transcribing Now
-            </button>
+            <Link href="/signup">
+              <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 shadow-xl">
+                Start Transcribing Now
+              </button>
+            </Link>
           </div>
         </div>
       </div>

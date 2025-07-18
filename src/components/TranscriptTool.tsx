@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 export default function TranscriptTool() {
   return (
     <section className="py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
@@ -116,14 +118,16 @@ export default function TranscriptTool() {
             Join thousands of creators who save hours every week with our AI-powered transcription platform.
           </p>
           
-          <button className="group relative px-10 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 shadow-xl hover:shadow-2xl">
-            <span className="relative z-10 flex items-center">
-              Get Started for Free
-              <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </span>
-          </button>
+          <Link href="/signup">
+            <button className="group relative px-10 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 shadow-xl hover:shadow-2xl">
+              <span className="relative z-10 flex items-center">
+                Get Started for Free
+                <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </button>
+          </Link>
           
           <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
             No credit card required • Free forever plan available
