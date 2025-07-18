@@ -113,16 +113,21 @@ export default function Pricing() {
 
   return (
     <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900" id="pricing">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-gray-900 to-blue-600 dark:from-white dark:to-blue-300 bg-clip-text text-transparent">
+          <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 rounded-full mb-6 animate-pulse">
+            <span className="text-sm font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              💎 Choose Your Plan
+            </span>
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent">
               Simple, Transparent Pricing
             </span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
-            Choose the perfect plan for your transcription needs. Upgrade or downgrade at any time.
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Start with our free trial and upgrade when you&apos;re ready. No hidden fees, cancel anytime.
           </p>
 
           {/* Billing Toggle */}
@@ -151,11 +156,11 @@ export default function Pricing() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mb-20">
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`relative rounded-3xl border-2 bg-white dark:bg-gray-800 p-8 shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105 ${
+              className={`relative rounded-3xl border-2 bg-white dark:bg-gray-800 p-6 lg:p-8 shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105 ${
                 plan.popular
                   ? 'border-blue-500 ring-4 ring-blue-500/20'
                   : 'border-gray-200 dark:border-gray-700'
@@ -170,60 +175,69 @@ export default function Pricing() {
               )}
 
               {/* Plan Header */}
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+              <div className="text-center mb-6 lg:mb-8">
+                <h3 className="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white mb-2">
                   {plan.name}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm lg:text-base">
                   {plan.description}
                 </p>
-                <div className="flex items-baseline justify-center">
-                  <span className="text-5xl font-bold text-gray-900 dark:text-white">
+                <div className="flex items-baseline justify-center mb-2">
+                  <span className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-200 bg-clip-text text-transparent">
                     ${isYearly ? plan.price.yearly : plan.price.monthly}
                   </span>
                   {plan.price.monthly > 0 && (
-                    <span className="text-gray-600 dark:text-gray-300 ml-1">
+                    <span className="text-gray-600 dark:text-gray-300 ml-1 text-lg">
                       /{isYearly ? 'year' : 'month'}
                     </span>
                   )}
                 </div>
                 {isYearly && plan.price.monthly > 0 && (
-                  <p className="text-sm text-green-600 dark:text-green-400 mt-1">
-                    Save ${(plan.price.monthly * 12) - plan.price.yearly} per year
-                  </p>
+                  <div className="inline-flex items-center px-3 py-1 bg-green-100 dark:bg-green-900/30 rounded-full">
+                    <span className="text-sm font-medium text-green-700 dark:text-green-300">
+                      💰 Save ${(plan.price.monthly * 12) - plan.price.yearly} per year
+                    </span>
+                  </div>
                 )}
               </div>
 
               {/* Features */}
-              <div className="space-y-4 mb-8">
+              <div className="space-y-3 lg:space-y-4 mb-6 lg:mb-8">
                 {plan.features.map((feature, featureIndex) => (
-                  <div key={featureIndex} className="flex items-start">
-                    <svg className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300">{feature}</span>
+                  <div key={featureIndex} className="flex items-start group">
+                    <div className="flex-shrink-0 w-6 h-6 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mr-3 mt-0.5 transition-transform duration-200 group-hover:scale-110">
+                      <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <span className="text-gray-700 dark:text-gray-300 leading-relaxed">{feature}</span>
                   </div>
                 ))}
                 {plan.limitations.map((limitation, limitIndex) => (
-                  <div key={limitIndex} className="flex items-start">
-                    <svg className="w-5 h-5 text-gray-400 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                    <span className="text-gray-500 dark:text-gray-400">{limitation}</span>
+                  <div key={limitIndex} className="flex items-start group">
+                    <div className="flex-shrink-0 w-6 h-6 bg-gray-200 dark:bg-gray-600 rounded-full flex items-center justify-center mr-3 mt-0.5 transition-transform duration-200 group-hover:scale-110">
+                      <svg className="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </div>
+                    <span className="text-gray-500 dark:text-gray-400 leading-relaxed">{limitation}</span>
                   </div>
                 ))}
               </div>
 
               {/* CTA Button */}
               <Link href="/signup">
-                <button className={`w-full py-4 px-6 rounded-xl font-semibold transition-all duration-200 transform hover:scale-105 ${
+                <button className={`w-full py-4 px-6 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-2xl flex items-center justify-center gap-2 group ${
                   plan.popular
-                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 shadow-lg'
+                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700'
                     : plan.name === 'Free'
-                    ? 'bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-600'
-                    : 'bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100'
+                    ? 'bg-gradient-to-r from-red-600 to-red-700 text-white hover:from-red-700 hover:to-red-800'
+                    : 'bg-gradient-to-r from-gray-800 to-gray-900 dark:from-gray-700 dark:to-gray-800 text-white hover:from-gray-900 hover:to-black dark:hover:from-gray-600 dark:hover:to-gray-700'
                 }`}>
-                  {plan.cta}
+                  <span>{plan.cta}</span>
+                  <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
                 </button>
               </Link>
             </div>
