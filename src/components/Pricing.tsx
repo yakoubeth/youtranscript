@@ -128,6 +128,7 @@ export default function Pricing() {
             </span>
             <button
               onClick={() => setIsYearly(!isYearly)}
+              aria-label={`Switch to ${isYearly ? 'monthly' : 'yearly'} billing`}
               className="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-200 dark:bg-gray-700 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             >
               <span
