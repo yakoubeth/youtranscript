@@ -56,11 +56,11 @@ export default function SignupForm() {
         <div className="text-center mb-8">
           <h1 className="text-3xl sm:text-4xl font-bold mb-4">
             <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent">
-              Create Your Account
+              Start Your Free Trial
             </span>
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300">
-            Join thousands of creators transforming their content
+            Get 5 transcripts free for 14 days • No credit card required
           </p>
         </div>
 
@@ -228,36 +228,76 @@ export default function SignupForm() {
           </div>
         </div>
 
-        {/* Free Plan Benefits */}
-        <div className="mt-8 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-gray-700 p-6">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 text-center">
-            🎉 What you get with your free account:
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-            <div className="flex items-center text-gray-600 dark:text-gray-300">
-              <svg className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              5 videos per month
+        {/* Free Trial Benefits */}
+        <div className="mt-8 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 backdrop-blur-sm rounded-xl border border-blue-200/50 dark:border-blue-700/50 p-6">
+          <div className="text-center mb-6">
+            <div className="inline-flex items-center px-3 py-1 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 rounded-full mb-3">
+              <span className="text-sm font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                🚀 14-Day Free Trial
+              </span>
             </div>
-            <div className="flex items-center text-gray-600 dark:text-gray-300">
-              <svg className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              All export formats
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+              Start with 5 transcripts completely free!
+            </h3>
+            <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
+              No credit card required • Cancel anytime
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="flex items-start text-gray-700 dark:text-gray-200">
+              <div className="flex-shrink-0 w-5 h-5 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                <svg className="w-3 h-3 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div>
+                <span className="font-medium">5 transcripts included</span>
+                <p className="text-xs text-gray-500 dark:text-gray-400">Perfect to test our service</p>
+              </div>
             </div>
-            <div className="flex items-center text-gray-600 dark:text-gray-300">
-              <svg className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              Basic transcription
+            
+            <div className="flex items-start text-gray-700 dark:text-gray-200">
+              <div className="flex-shrink-0 w-5 h-5 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                <svg className="w-3 h-3 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div>
+                <span className="font-medium">Copy to clipboard</span>
+                <p className="text-xs text-gray-500 dark:text-gray-400">Quick access to your text</p>
+              </div>
             </div>
-            <div className="flex items-center text-gray-600 dark:text-gray-300">
-              <svg className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              Timestamp support
+            
+            <div className="flex items-start text-gray-700 dark:text-gray-200">
+              <div className="flex-shrink-0 w-5 h-5 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                <svg className="w-3 h-3 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div>
+                <span className="font-medium">Basic timestamps</span>
+                <p className="text-xs text-gray-500 dark:text-gray-400">Navigate your content easily</p>
+              </div>
             </div>
+            
+            <div className="flex items-start text-gray-700 dark:text-gray-200">
+              <div className="flex-shrink-0 w-5 h-5 bg-indigo-100 dark:bg-indigo-900/30 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                <svg className="w-3 h-3 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div>
+                <span className="font-medium">Videos up to 10 min</span>
+                <p className="text-xs text-gray-500 dark:text-gray-400">Great for most content</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-6 pt-4 border-t border-blue-200/50 dark:border-blue-700/50">
+            <p className="text-center text-sm text-gray-600 dark:text-gray-300">
+              <span className="font-medium">Ready for more?</span> Upgrade to Pro ($10/month) or Ultra ($25/month) for unlimited transcripts and AI features
+            </p>
           </div>
         </div>
       </div>
