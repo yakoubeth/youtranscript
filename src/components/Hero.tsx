@@ -41,7 +41,7 @@ export default function Hero() {
           {/* Subtitle */}
           <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
             Extract accurate transcripts, get AI summaries, and chat with your content. 
-            The most powerful YouTube transcription platform for creators and professionals.
+            Join thousands of creators with our free plan or upgrade for advanced AI features.
           </p>
 
           {/* Features list */}
@@ -76,7 +76,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 shadow-xl hover:shadow-2xl">
               <span className="relative z-10 flex items-center">
-                Start Free Trial
+                Start Free - Sign Up
                 <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
@@ -85,6 +85,13 @@ export default function Hero() {
             <button className="px-8 py-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white font-semibold rounded-xl hover:bg-white dark:hover:bg-gray-800 transition-all duration-200 border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600">
               View Pricing Plans
             </button>
+          </div>
+
+          {/* Free tier benefits */}
+          <div className="mt-6">
+            <p className="text-sm text-gray-500 dark:text-gray-400">
+              🎉 Free Forever Plan: 5 videos/month • Basic transcription • All export formats
+            </p>
           </div>
 
           {/* Trust indicators */}
