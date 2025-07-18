@@ -30,7 +30,7 @@ export default function Pricing() {
     {
       name: 'Pro',
       description: 'For content creators and professionals',
-      price: { monthly: 19, yearly: 190 },
+      price: { monthly: 10, yearly: 96 },
       features: [
         'Unlimited transcripts',
         'AI-powered transcript summarization',
@@ -48,29 +48,6 @@ export default function Pricing() {
       cta: 'Start Pro Trial',
       popular: true,
       color: 'blue'
-    },
-    {
-      name: 'Enterprise',
-      description: 'For teams and organizations',
-      price: { monthly: 99, yearly: 990 },
-      features: [
-        'Everything in Pro',
-        'Advanced AI content analysis',
-        'Sentiment analysis of transcripts',
-        'Multi-language translation',
-        'Custom AI model training',
-        'Team collaboration tools',
-        'Advanced analytics dashboard',
-        'White-label solutions',
-        'Dedicated account manager',
-        'SLA guarantee (99.9% uptime)',
-        'Custom integrations',
-        'Advanced security & compliance'
-      ],
-      limitations: [],
-      cta: 'Contact Sales',
-      popular: false,
-      color: 'purple'
     }
   ];
 
@@ -147,7 +124,7 @@ export default function Pricing() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20 max-w-4xl mx-auto">
           {plans.map((plan, index) => (
             <div
               key={index}
@@ -227,69 +204,184 @@ export default function Pricing() {
         </div>
 
         {/* Advanced Features Section */}
-        <div className="bg-white dark:bg-gray-800 rounded-3xl p-12 border border-gray-200 dark:border-gray-700 shadow-xl">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              Powered by Advanced AI
-            </h3>
-            <p className="text-lg text-gray-600 dark:text-gray-300">
-              Unlock the full potential of your content with our cutting-edge AI features
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {advancedFeatures.map((feature, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl mb-4">{feature.icon}</div>
-                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                  {feature.title}
-                </h4>
-                <p className="text-gray-600 dark:text-gray-300">
-                  {feature.description}
-                </p>
+        <div className="relative overflow-hidden">
+          {/* Background Elements */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-800 dark:via-blue-900/20 dark:to-purple-900/20 rounded-3xl"></div>
+          <div className="absolute top-10 right-10 w-32 h-32 bg-blue-400/10 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-10 left-10 w-40 h-40 bg-purple-400/10 rounded-full blur-2xl"></div>
+          
+          <div className="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl p-12 border border-white/20 dark:border-gray-700/50 shadow-xl">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 rounded-full mb-4">
+                <span className="text-sm font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  🚀 AI-Powered Features
+                </span>
               </div>
-            ))}
+              <h3 className="text-4xl font-bold mb-4">
+                <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent">
+                  Transform Your Content
+                </span>
+              </h3>
+              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                Unlock powerful AI capabilities that turn simple transcripts into intelligent, searchable content
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+              {advancedFeatures.map((feature, index) => (
+                <div key={index} className="group relative">
+                  <div className="relative bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 border border-white/40 dark:border-gray-700/40 hover:border-blue-200 dark:hover:border-blue-700 transition-all duration-300 hover:shadow-xl hover:scale-105">
+                    <div className="text-5xl mb-6 transform group-hover:scale-110 transition-transform duration-300">
+                      {feature.icon}
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                      {feature.title}
+                    </h4>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                      {feature.description}
+                    </p>
+                    
+                    {/* Hover effect overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 to-purple-50/50 dark:from-blue-900/10 dark:to-purple-900/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Call to Action */}
+            <div className="text-center">
+              <div className="inline-flex flex-col sm:flex-row gap-4">
+                <Link href="/signup">
+                  <button className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 shadow-xl hover:shadow-2xl">
+                    <span className="flex items-center">
+                      Start Your Free Trial
+                      <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </span>
+                  </button>
+                </Link>
+                <button className="px-8 py-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white font-semibold rounded-xl hover:bg-white dark:hover:bg-gray-800 transition-all duration-200 border border-gray-200 dark:border-gray-700">
+                  Watch Demo
+                </button>
+              </div>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
+                ✨ No credit card required • 14-day free trial • Cancel anytime
+              </p>
+            </div>
           </div>
         </div>
 
         {/* FAQ Section */}
-        <div className="mt-20 text-center">
-          <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
-            Frequently Asked Questions
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="text-left">
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                Can I cancel anytime?
-              </h4>
-              <p className="text-gray-600 dark:text-gray-300">
-                Yes, you can cancel your subscription at any time. No questions asked.
-              </p>
+        <div className="mt-24">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-full mb-4">
+              <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+                ❓ Got Questions?
+              </span>
             </div>
-            <div className="text-left">
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                Is there a free trial?
-              </h4>
-              <p className="text-gray-600 dark:text-gray-300">
-                Yes, all paid plans come with a 14-day free trial. No credit card required.
-              </p>
+            <h3 className="text-4xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+                Frequently Asked Questions
+              </span>
+            </h3>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              Everything you need to know about YouTranscript
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="group">
+              <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300 hover:shadow-lg">
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mr-4">
+                    <svg className="w-4 h-4 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-3">
+                      Can I cancel anytime?
+                    </h4>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                      Absolutely! You can cancel your subscription at any time with just one click. No questions asked, no cancellation fees.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="text-left">
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                What languages do you support?
-              </h4>
-              <p className="text-gray-600 dark:text-gray-300">
-                We support 100+ languages with high accuracy transcription and translation.
-              </p>
+            
+            <div className="group">
+              <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-600 transition-all duration-300 hover:shadow-lg">
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 w-8 h-8 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mr-4">
+                    <svg className="w-4 h-4 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-3">
+                      Is there a free trial?
+                    </h4>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                      Yes! All paid plans come with a 14-day free trial. No credit card required to start your trial.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="text-left">
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                How accurate are the transcripts?
-              </h4>
-              <p className="text-gray-600 dark:text-gray-300">
-                Our AI achieves 95-99% accuracy depending on audio quality and language.
-              </p>
+            
+            <div className="group">
+              <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 hover:border-green-300 dark:hover:border-green-600 transition-all duration-300 hover:shadow-lg">
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mr-4">
+                    <svg className="w-4 h-4 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-3">
+                      What languages do you support?
+                    </h4>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                      We support 100+ languages with high accuracy transcription, including English, Spanish, French, German, Chinese, and many more.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
+            
+            <div className="group">
+              <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-600 transition-all duration-300 hover:shadow-lg">
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 w-8 h-8 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg flex items-center justify-center mr-4">
+                    <svg className="w-4 h-4 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-3">
+                      How accurate are the transcripts?
+                    </h4>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                      Our AI achieves 95-99% accuracy depending on audio quality and language, with automatic punctuation and formatting.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Additional Support CTA */}
+          <div className="text-center mt-12">
+            <p className="text-gray-600 dark:text-gray-300 mb-4">
+              Still have questions? We&apos;re here to help!
+            </p>
+            <Link href="/contact">
+              <button className="px-6 py-3 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-medium rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200">
+                Contact Support
+              </button>
+            </Link>
           </div>
         </div>
       </div>
