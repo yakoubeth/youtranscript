@@ -95,11 +95,29 @@ export default function DashboardPage() {
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('overview');
+  const [fullName, setFullName] = useState('');
+  const [emailNotifications, setEmailNotifications] = useState(true);
+  const [autoDownload, setAutoDownload] = useState(false);
 
   useEffect(() => {
     if (status === 'loading') return;
     if (!session) router.push('/login');
   }, [session, status, router]);
+
+  // Initialize form data when session loads
+  useEffect(() => {
+    if (session?.user?.name) {
+      setFullName(session.user.name);
+    }
+  }, [session]);
+
+  // Handle profile save
+  const handleSaveProfile = async () => {
+    // TODO: Implement actual profile update API call
+    console.log('Saving profile:', { fullName });
+    // For now, just show a success message
+    alert('Profile updated successfully!');
+  };
 
   if (status === 'loading') {
     return (
@@ -518,7 +536,8 @@ export default function DashboardPage() {
                         <input
                           id="full-name"
                           type="text"
-                          value={session.user?.name || ''}
+                          value={fullName}
+                          onChange={(e) => setFullName(e.target.value)}
                           placeholder="Enter your full name"
                           className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                         />
@@ -537,7 +556,10 @@ export default function DashboardPage() {
                         />
                       </div>
                     </div>
-                    <button className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md font-medium transition-colors">
+                    <button 
+                      onClick={handleSaveProfile}
+                      className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md font-medium transition-colors"
+                    >
                       Save Changes
                     </button>
                   </div>
@@ -746,7 +768,8 @@ export default function DashboardPage() {
                           id="email-notifications"
                           type="checkbox" 
                           className="sr-only peer" 
-                          defaultChecked
+                          checked={emailNotifications}
+                          onChange={(e) => setEmailNotifications(e.target.checked)}
                           aria-label="Email Notifications"
                         />
                         <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-red-300 dark:peer-focus:ring-red-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-red-600"></div>
@@ -764,6 +787,8 @@ export default function DashboardPage() {
                           id="auto-download"
                           type="checkbox" 
                           className="sr-only peer" 
+                          checked={autoDownload}
+                          onChange={(e) => setAutoDownload(e.target.checked)}
                           aria-label="Auto-download Transcripts"
                         />
                         <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-red-300 dark:peer-focus:ring-red-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-red-600"></div>
