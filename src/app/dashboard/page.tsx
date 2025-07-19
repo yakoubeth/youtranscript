@@ -543,22 +543,187 @@ export default function DashboardPage() {
                   </div>
                 </div>
 
-                {/* Subscription */}
+                {/* Subscription Management */}
                 <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
                   <div className="p-6 border-b border-gray-200 dark:border-gray-700">
-                    <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Subscription</h2>
+                    <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Subscription & Billing</h2>
                   </div>
-                  <div className="p-6">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h3 className="font-medium text-gray-900 dark:text-white">Free Trial</h3>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
-                          {daysRemaining} days remaining • 5 transcripts included
-                        </p>
+                  <div className="p-6 space-y-6">
+                    {/* Current Plan */}
+                    <div className="bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-6">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="flex items-center space-x-2">
+                            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Free Trial</h3>
+                            <span className="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200 text-xs font-medium px-2 py-1 rounded-full">
+                              Active
+                            </span>
+                          </div>
+                          <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                            {daysRemaining} days remaining • {5 - mockTranscripts.length} transcripts left
+                          </p>
+                          <div className="mt-3">
+                            <div className="flex justify-between text-xs text-gray-600 dark:text-gray-400 mb-1">
+                              <span>Transcripts Used</span>
+                              <span>{mockTranscripts.length}/5</span>
+                            </div>
+                            <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                              <div 
+                                className={`bg-yellow-500 h-2 rounded-full transition-all duration-300 ${
+                                  mockTranscripts.length === 0 ? 'w-0' :
+                                  mockTranscripts.length === 1 ? 'w-1/5' :
+                                  mockTranscripts.length === 2 ? 'w-2/5' :
+                                  mockTranscripts.length === 3 ? 'w-3/5' :
+                                  mockTranscripts.length === 4 ? 'w-4/5' : 'w-full'
+                                }`}
+                              ></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-2xl font-bold text-gray-900 dark:text-white">$0</p>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">per month</p>
+                        </div>
                       </div>
-                      <button className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md font-medium transition-colors">
-                        Upgrade to Pro
-                      </button>
+                    </div>
+
+                    {/* Plan Comparison */}
+                    <div>
+                      <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Available Plans</h3>
+                      <div className="grid md:grid-cols-2 gap-4">
+                        {/* Pro Plan */}
+                        <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:border-red-300 dark:hover:border-red-600 transition-colors">
+                          <div className="flex justify-between items-start mb-3">
+                            <div>
+                              <h4 className="font-semibold text-gray-900 dark:text-white">Pro Plan</h4>
+                              <p className="text-sm text-gray-600 dark:text-gray-400">Perfect for regular users</p>
+                            </div>
+                            <div className="text-right">
+                              <p className="text-xl font-bold text-gray-900 dark:text-white">$10</p>
+                              <p className="text-xs text-gray-600 dark:text-gray-400">per month</p>
+                            </div>
+                          </div>
+                          <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
+                            <li className="flex items-center">
+                              <svg className="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                              </svg>
+                              50 transcripts/month
+                            </li>
+                            <li className="flex items-center">
+                              <svg className="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                              </svg>
+                              Up to 2 hours per video
+                            </li>
+                            <li className="flex items-center">
+                              <svg className="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                              </svg>
+                              Priority processing
+                            </li>
+                            <li className="flex items-center">
+                              <svg className="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                              </svg>
+                              Export formats
+                            </li>
+                          </ul>
+                          <button className="w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-md font-medium transition-colors">
+                            Upgrade to Pro
+                          </button>
+                        </div>
+
+                        {/* Ultra Plan */}
+                        <div className="border-2 border-gradient-to-r border-yellow-400 rounded-lg p-4 relative overflow-hidden">
+                          <div className="absolute top-0 right-0 bg-gradient-to-r from-yellow-400 to-yellow-500 text-yellow-900 text-xs font-bold px-3 py-1 rounded-bl-lg">
+                            POPULAR
+                          </div>
+                          <div className="flex justify-between items-start mb-3 mt-2">
+                            <div>
+                              <h4 className="font-semibold text-gray-900 dark:text-white">Ultra Plan</h4>
+                              <p className="text-sm text-gray-600 dark:text-gray-400">AI-powered features</p>
+                            </div>
+                            <div className="text-right">
+                              <p className="text-xl font-bold text-gray-900 dark:text-white">$25</p>
+                              <p className="text-xs text-gray-600 dark:text-gray-400">per month</p>
+                            </div>
+                          </div>
+                          <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
+                            <li className="flex items-center">
+                              <svg className="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                              </svg>
+                              Unlimited transcripts
+                            </li>
+                            <li className="flex items-center">
+                              <svg className="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                              </svg>
+                              Up to 5 hours per video
+                            </li>
+                            <li className="flex items-center">
+                              <svg className="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                              </svg>
+                              AI summaries & insights
+                            </li>
+                            <li className="flex items-center">
+                              <svg className="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                              </svg>
+                              Chat with transcripts
+                            </li>
+                          </ul>
+                          <button className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-yellow-900 py-2 px-4 rounded-md font-medium transition-colors">
+                            Upgrade to Ultra
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Billing Information */}
+                    <div className="border-t border-gray-200 dark:border-gray-700 pt-6">
+                      <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Billing Information</h3>
+                      <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <p className="font-medium text-gray-900 dark:text-white">Payment Method</p>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">No payment method on file</p>
+                          </div>
+                          <button className="text-red-600 dark:text-red-400 hover:text-red-500 dark:hover:text-red-300 font-medium text-sm">
+                            Add Payment Method
+                          </button>
+                        </div>
+                      </div>
+                      
+                      <div className="mt-4 bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <p className="font-medium text-gray-900 dark:text-white">Billing History</p>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">View your past invoices and payments</p>
+                          </div>
+                          <button className="text-red-600 dark:text-red-400 hover:text-red-500 dark:hover:text-red-300 font-medium text-sm">
+                            View History
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Danger Zone */}
+                    <div className="border-t border-gray-200 dark:border-gray-700 pt-6">
+                      <h3 className="text-lg font-medium text-red-600 dark:text-red-400 mb-4">Danger Zone</h3>
+                      <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <p className="font-medium text-red-900 dark:text-red-200">Cancel Subscription</p>
+                            <p className="text-sm text-red-700 dark:text-red-300">This action cannot be undone</p>
+                          </div>
+                          <button className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md font-medium text-sm transition-colors">
+                            Cancel Plan
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
