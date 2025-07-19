@@ -60,11 +60,11 @@ Usage Table:
 ## 🔧 Phase 3: Core Transcription Engine (Weeks 3-4)
 
 ### YouTube Integration
-- [ ] Build YouTube URL validator
+- [x] Build YouTube URL validator
+- [x] Add video metadata fetching (title, duration, etc.)
+- [x] Handle various YouTube URL formats
+- [x] Add video length restrictions per tier
 - [ ] Implement youtube-dl or yt-dlp for audio extraction
-- [ ] Add video metadata fetching (title, duration, etc.)
-- [ ] Handle various YouTube URL formats
-- [ ] Add video length restrictions per tier
 
 ### Transcription Service
 - [ ] Integrate OpenAI Whisper API or AssemblyAI
