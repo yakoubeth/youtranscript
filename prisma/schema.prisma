@@ -1,0 +1,123 @@
+// This is your Prisma schema file.
+// Learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  password      String?
+  
+  // Subscription and usage tracking
+  subscriptionTier   String   @default("free_trial") // free_trial, pro, ultra
+  subscriptionStatus String   @default("active")     // active, canceled, past_due
+  trialEndDate      DateTime?
+  transcriptsUsed   Int      @default(0)
+  aiQueriesUsed     Int      @default(0)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  accounts      Account[]
+  sessions      Session[]
+  transcripts   Transcript[]
+  usage         Usage[]
+  emailTokens   EmailToken[]
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model EmailToken {
+  id      String   @id @default(cuid())
+  token   String   @unique
+  type    String   // verification, password_reset
+  email   String
+  expires DateTime
+  used    Boolean  @default(false)
+  userId  String?
+  user    User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+}
+
+model Transcript {
+  id              String    @id @default(cuid())
+  userId          String
+  youtubeUrl      String
+  title           String?
+  thumbnailUrl    String?
+  duration        Int?      // in seconds
+  transcriptText  String?
+  status          String    @default("pending") // pending, processing, completed, failed
+  processingTime  Int?      // in seconds
+  
+  // AI Features
+  aiSummary       String?
+  speakerData     String?   // JSON data for speakers
+  keyTopics       String?   // JSON array of topics
+  
+  // Export tracking
+  exportFormats   String?   // JSON array of exported formats
+  
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Usage {
+  id               String   @id @default(cuid())
+  userId           String
+  monthYear        String   // Format: "2025-01"
+  transcriptsUsed  Int      @default(0)
+  aiQueriesUsed    Int      @default(0)
+  exportDownloads  Int      @default(0)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, monthYear])
+}
